@@ -1,23 +1,27 @@
-DROP TABLE IF EXISTS Peliculas;
-DROP TABLE IF EXISTS Salas;
-CREATE TABLE Peliculas(
-id INT NOT NULL AUTO_INCREMENT,
-nombre NVARCHAR(20),
-Clasificacion_Edad INT,
+DROP TABLE IF EXISTS Departamentos;
+DROP TABLE IF EXISTS Empleados;
+
+CREATE TABLE Departamentos(
+id int AUTO_INCREMENT,
+nombre nvarchar(100),
+presupuesto int,
 PRIMARY KEY(id)
 );
 
-CREATE TABLE Salas(
-id INT NOT NULL AUTO_INCREMENT,
-nombre NVARCHAR(20),
-Pelicula INT,
-PRIMARY KEY(id),
-CONSTRAINT FK_1 FOREIGN KEY (Pelicula) REFERENCES Peliculas (id)
+CREATE TABLE Empleados(
+id int AUTO_INCREMENT,
+dni varchar(9) NOT NULL UNIQUE,
+nombre nvarchar(100),
+apellidos nvarchar(255),
+Departamento long,
+PRIMARY KEY (id),
+CONSTRAINT FK_1 FOREIGN KEY (Departamento) REFERENCES Departamentos (id)
 );
 
-INSERT INTO Peliculas (nombre, Clasificacion_Edad) VALUES ('Nombre1', 2);
-INSERT INTO Peliculas (nombre, Clasificacion_Edad) VALUES ('Nombre2', 1);
-INSERT INTO Peliculas (nombre, Clasificacion_Edad) VALUES ('Nombre3', 3);
-INSERT INTO Salas (nombre, Pelicula) VALUES ('Sala1', 1);
-INSERT INTO Salas (nombre, Pelicula) VALUES ('Sala2', 1);
-INSERT INTO Salas (nombre, Pelicula) VALUES ('Sala3', 3);
+
+INSERT INTO Departamentos (nombre, presupuesto) VALUES ('Dep2', 260);
+INSERT INTO Departamentos (nombre, presupuesto) VALUES ('Dep3', 550);
+INSERT INTO Departamentos (nombre, presupuesto) VALUES ('Dep4', 300);
+
+INSERT INTO Empleados (dni, nombre, apellidos, Departamento) VALUES('23456789L', 'Eloy', 'Altozano', 1);
+INSERT INTO Empleados (dni, nombre, apellidos, Departamento) VALUES('66666666H', 'Jordi', 'Ribellas', 2);

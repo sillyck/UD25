@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Ud254Application {
+public class Ud25Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Ud254Application.class, args);
+		SpringApplication.run(Ud25Application.class, args);
 	}
 
 }
